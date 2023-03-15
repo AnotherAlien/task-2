@@ -1,0 +1,151 @@
+<html>
+<head>
+    <link rel="stylesheet" href="task 2.style.css">
+    <title>week 2 task</title>
+</head>
+<body>
+    <h1 id="s1">Fill in biodata</h1>
+    <form id="myForm" onsubmit="return validateForm()">
+        <fieldset id="s3">
+            
+            <legend> <h1 id="s2">Biodata</h1> </legend>
+            <label for="firstName" id="s3">First Name</label>
+            <input type="text" name="firstName" id="firstName" required><br><br>
+
+            <label for="surname" id="s3">Surname</label>
+            <input type="text" name="surname" id="surname" required><br><br>
+
+            <label for="email" id="s3">Email</label>
+            <input type="email" name="email" id="email" required><br><br>
+
+            <label for="password" id="s3">Password</label>
+            <input type="password" name="password" id="password" required><br><br>
+
+            <label for="phoneNumber" id="s3">Phone Number</label>
+            <input type="tel" name="phoneNumber" id="phoneNumber" required><br><br>
+
+            <label for="female" id="s3">Female</label>
+            <input type="radio" name="gender" id="female" value="female" required><br><br>
+
+            <label for="male" id="s3">Male</label>
+            <input type="radio" name="gender" id="male" value="male" required><br>
+
+            <p>Blood group</p>
+             <select id="Blood group">
+                <option value="Select">Select</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB">AB</option>
+            </select><br>
+
+            <p>Nationality</p>
+            <select id="country">
+                <option value="Select">Select</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Egypt">Egypt</option>
+            </select><br>
+
+            <p>State</p>
+             <select id="state">
+                <option value="Select">Select</option>
+                <option value="Katsina">Katsina</option>
+                <option value="Jigawa">Jigawa</option>
+                <option value="Kaduna">Kaduna</option>
+                <option value="Lagos">Lagos</option>
+                <option value="Abuja">Abuja</option>
+            </select><br><br>
+            <button id="s4">Submit</button>
+        </fieldset><br>
+        <script>
+        function validateForm() {
+            // Get form elements
+            var firstName = document.getElementById("firstName");
+            var surname = document.getElementById("surname");
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var phoneNumber = document.getElementById("phoneNumber");
+            var bloodGroup = document.getElementById("Blood group");
+            var country = document.getElementById("country");
+            var state = document.getElementById("state");
+          
+            // Validate first name
+            if (firstName.value == "") {
+              alert("Please enter your first name.");
+              firstName.focus();
+              return false;
+            }
+          
+            // Validate surname
+            if (surname.value == "") {
+              alert("Please enter your surname.");
+              surname.focus();
+              return false;
+            }
+          
+            // Validate email
+            if (email.value == "") {
+              alert("Please enter your email.");
+              email.focus();
+              return false;
+            } else {
+              var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(email.value)) {
+                alert("Please enter a valid email address.");
+                email.focus();
+                return false;
+              }
+            }
+          
+            // Validate password
+            if (password.value == "") {
+              alert("Please enter your password.");
+              password.focus();
+              return false;
+            } else if (password.value.length < 8) {
+              alert("Password must be at least 8 characters long.");
+              password.focus();
+              return false;
+            }
+          
+            // Validate phone number
+            if (phoneNumber.value == "") {
+              alert("Please enter your phone number.");
+              phoneNumber.focus();
+              return false;
+            } else {
+              var phoneRegex = /^\d{10}$/;
+              if (!phoneRegex.test(phoneNumber.value)) {
+                alert("Please enter a valid phone number.");
+                phoneNumber.focus();
+                return false;
+              }
+            }
+          
+            // Validate blood group
+            if (bloodGroup.value == "Select") {
+              alert("Please select your blood group.");
+              bloodGroup.focus();
+              return false;
+            }
+          
+            // Validate country
+            if (country.value == "Select") {
+              alert("Please select your country.");
+              country.focus();
+              return false;
+            }
+          
+            // Validate state
+            if (state.value == "Select") {
+              alert("Please select your state.");
+              state.focus();
+              return false;
+            }
+          
+            return true;
+          }
+        </script>   
+    </form>
+</body>
+</html>
